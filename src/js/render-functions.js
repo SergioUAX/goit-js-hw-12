@@ -3,7 +3,7 @@ import { lightbox } from "../main";
 const imageGallery = document.querySelector(".gallery");  
 
 export function renderGallery(images) {    
-    refresh();
+    //refresh();
     const markup = images
         .map((image) =>
             `<li class="gallery-item">
@@ -45,10 +45,42 @@ export function renderGallery(images) {
 }
 
 export function renderLoader() {
-    const markup = `<span class="loader">Loading images, please wait...</span>`;
-    imageGallery.insertAdjacentHTML("beforeend", markup);
-    
+    const markup = `<span class="loader">Loading...</span>`;
+    imageGallery.insertAdjacentHTML("afterend", markup);    
 }
+
+export function renderNextButton() {
+    const markup = `<button class="button-next" type="button">Load more</button>`;
+    imageGallery.insertAdjacentHTML("afterend", markup);    
+}
+
+export function removeNextButton() {
+    const nextButton = document.querySelector('.button-next');
+    if (nextButton) {
+        nextButton.remove();
+    }
+}
+
+export function removeLoader() {
+    const loader = document.querySelector('.loader');
+    if (loader) {
+        loader.remove();
+    }
+}
+
  export function refresh () { 
         imageGallery.innerHTML = "";
     }
+
+export function scrollScreen() {
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    if (galleryItems.length > 0) {
+        const itemHeight = galleryItems[0].getBoundingClientRect().height;
+
+        window.scrollBy({
+            top: itemHeight * 2,
+            behavior: "smooth"
+        });
+    }
+}

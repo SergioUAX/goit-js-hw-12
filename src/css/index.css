@@ -165,8 +165,9 @@ button {
 }
 
 .loader {
-    font-size: 48px;
+    font-size: 24px;
     display: inline-block;
+    margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: #2e2f42;
@@ -177,7 +178,7 @@ button {
 }
 
 .loader::after {
-    content: 'Loading';
+    content: 'Loading...';
     position: absolute;
     left: 0;
     top: 0;
@@ -197,4 +198,24 @@ button {
     100% {
         width: 100%;
     }
+}
+
+.button-next { 
+    display: inline-block;
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    background: #4e75ff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #fff;
+}
+
+.button-next:hover {
+    background: #6c8cff;
 }
